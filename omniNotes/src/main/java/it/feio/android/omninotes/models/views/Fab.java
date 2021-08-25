@@ -20,6 +20,7 @@ package it.feio.android.omninotes.models.views;
 import static androidx.core.view.ViewCompat.animate;
 import static it.feio.android.omninotes.utils.ConstantsBase.FAB_ANIMATION_TIME;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -63,6 +64,7 @@ public class Fab {
       if (!isExpanded() && expandOnLongClick) {
         performAction(v);
       } else {
+        Log.i("Themis", "init: step 1: click fabAddButton ");
         performToggle();
       }
     });

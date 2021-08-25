@@ -42,6 +42,8 @@ import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -270,6 +272,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     // DetailFragment
     f = checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
     if (f != null) {
+      Log.i("Themis", "onBackPressed: step 5.1: back");
       ((DetailFragment) f).goBack = true;
       ((DetailFragment) f).saveAndExit((DetailFragment) f);
       return;

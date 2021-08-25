@@ -55,6 +55,7 @@ import android.os.Looper;
 import android.os.Parcelable;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -110,6 +111,7 @@ import it.feio.android.omninotes.models.listeners.OnViewTouchedListener;
 import it.feio.android.omninotes.models.listeners.RecyclerViewItemClickSupport;
 import it.feio.android.omninotes.models.views.Fab;
 import it.feio.android.omninotes.models.views.InterceptorLinearLayout;
+import it.feio.android.omninotes.models.views.SquareImageView;
 import it.feio.android.omninotes.utils.AnimationsHelper;
 import it.feio.android.omninotes.utils.IntentChecker;
 import it.feio.android.omninotes.utils.KeyboardUtils;
@@ -270,6 +272,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
           editNote(new Note(), v);
           break;
         case R.id.fab_note:
+          Log.i("Themis", "initFab: step 2: click fab_note");
           editNote(new Note(), v);
           break;
         case R.id.fab_camera:
@@ -518,6 +521,12 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     // Note single click listener managed by the activity itself
     list.setOnItemClickListener((arg0, view, position, arg3) -> {
       if (getActionMode() == null) {
+        if( view.findViewById(R.id.attachmentThumbnail) != null){
+          SquareImageView squareImageView = view.findViewById(R.id.attachmentThumbnail);
+          if( squareImageView.getDrawable() != null){
+            Log.i("Themis", "initListView: step 5.2: 点击有图片的iterm");
+          }
+        }
         editNote(listAdapter.getItem(position), view);
         return;
       }

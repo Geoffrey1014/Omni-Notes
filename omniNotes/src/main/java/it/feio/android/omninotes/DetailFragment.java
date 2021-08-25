@@ -88,6 +88,7 @@ import android.text.Editable;
 import android.text.Selection;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -798,6 +799,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         attachmentIntent.putExtra(GALLERY_TITLE, title1);
         attachmentIntent.putParcelableArrayListExtra(GALLERY_IMAGES, images);
         attachmentIntent.putExtra(GALLERY_CLICKED_IMAGE, clickedImage);
+        Log.i("Themis", "initViewAttachments: step 6 & last: click photo");
         startActivity(attachmentIntent);
 
       } else if (MIME_TYPE_AUDIO.equals(attachment.getMime_type())) {
@@ -1080,6 +1082,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     switch (item.getItemId()) {
       case R.id.menu_attachment:
         showAttachmentsPopup();
+        Log.i("Themis", "onOptionsItemSelected: step 3: clcik menu_attachment");
         break;
       case R.id.menu_tag:
         addTags();
@@ -1412,6 +1415,9 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       switch (requestCode) {
         case TAKE_PHOTO:
           attachment = new Attachment(attachmentUri, MIME_TYPE_IMAGE);
+          if (attachment != null){
+            Log.i("Themis", "onActivityResult: step 5: 返回一张照片");
+          }
           addAttachment(attachment);
           mAttachmentAdapter.notifyDataSetChanged();
           mGridView.autoresize();
@@ -2273,6 +2279,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         // Photo from camera
         case R.id.camera:
           takePhoto();
+          Log.i("Themis", "onClick: step 4: click camera");
           break;
         case R.id.recording:
           if (!isRecording) {
