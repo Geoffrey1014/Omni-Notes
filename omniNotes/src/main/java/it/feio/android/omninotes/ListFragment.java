@@ -245,6 +245,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
                     break;
                 case R.id.fab_note:
                     editNote(new Note(), v);
+                    Log.i("Themis", "initFab: step 2: click fab_note");
                     break;
                 case R.id.fab_camera:
                     Intent i = mainActivity.getIntent();

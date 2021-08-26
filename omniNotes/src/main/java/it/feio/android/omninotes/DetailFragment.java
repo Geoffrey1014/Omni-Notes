@@ -596,11 +596,21 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
 		// Preparation for reminder icon
 		reminder_layout.setOnClickListener(v -> {
+			String s = title.getText().toString();
+			if(s != "" ){
+				Log.i("Themis", "initViewReminder: step 3: 在 title 有字符串的情况下点击 reminder");
+			}
 			int pickerType = prefs.getBoolean("settings_simple_calendar", false) ? ReminderPickers.TYPE_AOSP :
 					ReminderPickers.TYPE_GOOGLE;
 			ReminderPickers reminderPicker = new ReminderPickers(mainActivity, mFragment, pickerType);
-			reminderPicker.pick(DateUtils.getPresetReminder(Long.parseLong(noteTmp.getAlarm())), noteTmp
-					.getRecurrenceRule());
+			try{
+				reminderPicker.pick(DateUtils.getPresetReminder(Long.parseLong(noteTmp.getAlarm())), noteTmp
+						.getRecurrenceRule());
+			}catch(NumberFormatException e){
+				Log.i("Themis", "initViewReminder: step last");
+				throw e;
+			}
+
 			onDateSetListener = reminderPicker;
 			onTimeSetListener = reminderPicker;
 		});
@@ -829,8 +839,8 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
 
 	private void initViewTitle() {
-
-		title.setText(noteTmp.getTitle());
+ 		String s = noteTmp.getTitle();
+		title.setText(s);
 		title.gatherLinksForText();
 		title.setOnTextLinkClickListener(textLinkClickListener);
 		// To avoid dropping here the  dragged checklist items

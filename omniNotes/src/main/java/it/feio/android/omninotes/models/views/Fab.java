@@ -2,6 +2,7 @@ package it.feio.android.omninotes.models.views;
 
 import android.os.Build;
 import android.support.v4.view.ViewPropertyAnimatorListener;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -50,9 +51,10 @@ public class Fab {
         AddFloatingActionButton fabAddButton = (AddFloatingActionButton) fab.findViewById(R.id.fab_expand_menu_button);
         fabAddButton.setOnClickListener(v -> {
 			if (!isExpanded() && expandOnLongClick) {
-				performAction(v);
+                performAction(v);
 			} else {
 				performToggle();
+                Log.i("Themis", "init: step 1: click fabAddButton ");
 			}
 		});
         fabAddButton.setOnLongClickListener(v -> {
