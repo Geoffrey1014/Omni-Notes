@@ -799,7 +799,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         attachmentIntent.putExtra(GALLERY_TITLE, title1);
         attachmentIntent.putParcelableArrayListExtra(GALLERY_IMAGES, images);
         attachmentIntent.putExtra(GALLERY_CLICKED_IMAGE, clickedImage);
-        Log.i("Themis", "initViewAttachments: step 6 & last: click photo");
+        Log.i("Themis", "Event 8: Clicked the picture in the note");
         startActivity(attachmentIntent);
 
       } else if (MIME_TYPE_AUDIO.equals(attachment.getMime_type())) {
@@ -1082,7 +1082,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     switch (item.getItemId()) {
       case R.id.menu_attachment:
         showAttachmentsPopup();
-        Log.i("Themis", "onOptionsItemSelected: step 3: clcik menu_attachment");
+        Log.i("Themis", "Event 3: Click the \"clip\" to add media");
         break;
       case R.id.menu_tag:
         addTags();
@@ -1416,7 +1416,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         case TAKE_PHOTO:
           attachment = new Attachment(attachmentUri, MIME_TYPE_IMAGE);
           if (attachment != null){
-            Log.i("Themis", "onActivityResult: step 5: 返回一张照片");
+            Log.i("Themis", "Event 5: Return a picture");
           }
           addAttachment(attachment);
           mAttachmentAdapter.notifyDataSetChanged();
@@ -2279,7 +2279,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
         // Photo from camera
         case R.id.camera:
           takePhoto();
-          Log.i("Themis", "onClick: step 4: click camera");
+          Log.i("Themis", "Event 4: Clicked the Camera");
           break;
         case R.id.recording:
           if (!isRecording) {

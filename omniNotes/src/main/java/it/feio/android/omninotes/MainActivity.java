@@ -272,7 +272,7 @@ public class MainActivity extends BaseActivity implements SharedPreferences.OnSh
     // DetailFragment
     f = checkFragmentInstance(R.id.fragment_container, DetailFragment.class);
     if (f != null) {
-      Log.i("Themis", "onBackPressed: step 5.1: back");
+      Log.i("Themis", "Event 6: Back");
       ((DetailFragment) f).goBack = true;
       ((DetailFragment) f).saveAndExit((DetailFragment) f);
       return;

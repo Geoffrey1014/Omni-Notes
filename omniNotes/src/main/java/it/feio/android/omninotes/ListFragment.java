@@ -272,7 +272,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
           editNote(new Note(), v);
           break;
         case R.id.fab_note:
-          Log.i("Themis", "initFab: step 2: click fab_note");
+          Log.i("Themis", "Event 2: Clicked \"Text note\"");
           editNote(new Note(), v);
           break;
         case R.id.fab_camera:
@@ -524,7 +524,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         if( view.findViewById(R.id.attachmentThumbnail) != null){
           SquareImageView squareImageView = view.findViewById(R.id.attachmentThumbnail);
           if( squareImageView.getDrawable() != null){
-            Log.i("Themis", "initListView: step 5.2: 点击有图片的iterm");
+            Log.i("Themis", "Event 7: Clicked a note with pictures");
           }
         }
         editNote(listAdapter.getItem(position), view);

@@ -64,7 +64,7 @@ public class Fab {
       if (!isExpanded() && expandOnLongClick) {
         performAction(v);
       } else {
-        Log.i("Themis", "init: step 1: click fabAddButton ");
+        Log.i("Themis", "Event 1: Clicked the floating action button.");
         performToggle();
       }
     });
