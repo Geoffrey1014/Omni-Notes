@@ -72,7 +72,7 @@ public class OmniNotes extends MultiDexApplication {
   @Override
   protected void attachBaseContext (Context base) {
     super.attachBaseContext(base);
-    ACRA.init(this);
+//    ACRA.init(this);
     ACRA.getErrorReporter().putCustomData("TRACEPOT_DEVELOP_MODE", isDebugBuild() ? "1" : "0");
   }
 
